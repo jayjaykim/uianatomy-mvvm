@@ -1,7 +1,6 @@
 package com.jayjaylab.ui.anatomy.ui.adapter;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -46,10 +45,8 @@ public class GridImageAdapter extends RecyclerView.Adapter<GridImageAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Node node = dataset.get(position);
-//        if(Log.DEBUG) Log.d("position : " + position);
 
         if(node != null) {
-//            if(Log.DEBUG) Log.d("url : " + node.getThumbnailSrc());
             if(TextUtils.isEmpty(node.getThumbnailSrc())) {
                 holder.imageview.setImageDrawable(null);
             } else {
