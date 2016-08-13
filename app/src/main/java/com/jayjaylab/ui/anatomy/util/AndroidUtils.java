@@ -1,8 +1,8 @@
 package com.jayjaylab.ui.anatomy.util;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.TypedValue;
+import lombok.NonNull;
 
 /**
  * Created by jjkim on 2016. 7. 19..
@@ -16,15 +16,11 @@ public class AndroidUtils {
      * @return A float value to represent px equivalent to dp depending on device density
      */
     public static float convertDpToPixel(float dp, @NonNull Context context) {
-        Objects.requireNonNull(context, "context is null");
-
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
                 context.getResources().getDisplayMetrics());
     }
 
     public static int getScreenWidth(@NonNull Context context) {
-        Objects.requireNonNull(context, "context is null");
-
         return context.getResources().getDisplayMetrics().widthPixels;
     }
 }

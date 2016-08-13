@@ -5,6 +5,7 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 import java.io.IOException;
 
@@ -18,14 +19,9 @@ public class OkhttpProvider {
     private OkhttpProvider() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         if(Log.DEBUG) {
-            builder.addInterceptor(chain -> {
-                Request request = chain.request();
-                Log.v("url : " + request.url());
-
-                // try the request
-                Response response = chain.proceed(request);
-                return response;
-            });
+            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            builder.addInterceptor(interceptor);
             builder.addNetworkInterceptor(new StethoInterceptor());
         }
 

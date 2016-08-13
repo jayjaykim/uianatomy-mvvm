@@ -48,8 +48,9 @@ public class GridImageAdapter extends RecyclerView.Adapter<GridImageAdapter.View
 
         if(node != null) {
             if(TextUtils.isEmpty(node.getThumbnailSrc())) {
-                holder.imageview.setImageDrawable(null);
+                Glide.clear(holder.imageview);
             } else {
+                Log.d("url : " + node.getThumbnailSrc());
                 Glide.with(holder.imageview.getContext())
                         .load(node.getThumbnailSrc())
                         .diskCacheStrategy(DiskCacheStrategy.RESULT)
