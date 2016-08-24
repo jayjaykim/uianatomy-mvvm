@@ -1,6 +1,7 @@
 package com.jayjaylab.ui.anatomy.util;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
+import com.google.common.io.Files;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
